@@ -1,0 +1,49 @@
+
+.header {
+  background-color: #171717;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 2px solid #c49a45;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.logo span {
+  color: #c49a45;
+}
+
+.icone {
+  font-size: 28px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #c49a45;
+}
+
+.admin {
+  color: #c49a45;
+  font-weight: bold;
+}
