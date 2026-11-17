@@ -1,4 +1,5 @@
 package br.com.crud.sistema.controller;
+import br.com.crud.sistema.repository.ClienteAgendamentosProjection;
 
 import java.util.List;
 import java.util.Optional;
@@ -73,4 +74,9 @@ public class ClienteController {
 
         return ResponseEntity.noContent().build();
     }
+    // contar agendamentos de cada cliente
+@GetMapping("/total-agendamentos")
+public List<ClienteAgendamentosProjection> contarAgendamentos() {
+    return repository.contarAgendamentosPorCliente();
+}
 }

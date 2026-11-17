@@ -1,4 +1,5 @@
 package br.com.crud.sistema.controller;
+import br.com.crud.sistema.repository.AgendamentoClienteProjection;
 
 import java.util.List;
 import java.util.Optional;
@@ -74,4 +75,9 @@ public class AgendamentoController {
 
         return ResponseEntity.noContent().build();
     }
+    // listar agendamentos junto com os dados dos clientes
+@GetMapping("/com-clientes")
+public List<AgendamentoClienteProjection> listarComClientes() {
+    return repository.listarAgendamentosComClientes();
+}
 }
