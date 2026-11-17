@@ -1,0 +1,70 @@
+.formulario-cliente {
+  background-color: #1c1c1c;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  max-width: 600px;
+  margin: 30px auto;
+  color: white;
+}
+
+.formulario-cliente h2 {
+  color: #c49a45;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.formulario-cliente form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  color: #ddd;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.campo input {
+  background-color: #292929;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 12px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.campo input:focus {
+  border-color: #c49a45;
+  box-shadow: 0 0 5px #c49a4555;
+}
+
+.campo input::placeholder {
+  color: #888;
+}
+
+.formulario-cliente button {
+  background-color: #c49a45;
+  color: #171717;
+  border: none;
+  padding: 13px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.formulario-cliente button:hover {
+  background-color: #dfb75f;
+  transform: translateY(-2px);
+}
