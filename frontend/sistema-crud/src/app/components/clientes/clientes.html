@@ -1,4 +1,3 @@
-
 <section class="clientes">
 
   <div class="titulo-pagina">
@@ -10,6 +9,14 @@
     <a routerLink="/clientes/novo" class="btn-novo">
       + Novo cliente
     </a>
+  </div>
+
+  <div *ngIf="mensagemSucesso" class="mensagem-sucesso" role="status">
+    {{ mensagemSucesso }}
+  </div>
+
+  <div *ngIf="mensagemErro" class="mensagem-erro" role="alert">
+    {{ mensagemErro }}
   </div>
 
   <div class="lista-clientes">

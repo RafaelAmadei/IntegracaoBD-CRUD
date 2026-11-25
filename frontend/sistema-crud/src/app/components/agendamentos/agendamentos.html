@@ -1,4 +1,3 @@
-
 <section class="agendamentos">
 
   <div class="titulo-pagina">
@@ -7,6 +6,14 @@
       <h2>Gerenciamento de agendamentos</h2>
       <p>Organize os horários e serviços da sua barbearia.</p>
     </div>
+  </div>
+
+  <div *ngIf="mensagemSucesso" class="mensagem-sucesso" role="status">
+    {{ mensagemSucesso }}
+  </div>
+
+  <div *ngIf="mensagemErro" class="mensagem-erro" role="alert">
+    {{ mensagemErro }}
   </div>
 
   <div class="formulario">
@@ -36,9 +43,7 @@
             <option
               *ngFor="let cliente of clientes"
               [value]="cliente.id">
-
               {{ cliente.nome }}
-
             </option>
 
           </select>
@@ -102,9 +107,7 @@
           type="button"
           class="btn-cancelar"
           (click)="limparFormulario()">
-
           Cancelar edição
-
         </button>
 
       </div>
@@ -168,18 +171,14 @@
                 class="btn-editar"
                 type="button"
                 (click)="editar(agendamento)">
-
                 Editar
-
               </button>
 
               <button
                 class="btn-excluir"
                 type="button"
                 (click)="excluir(agendamento.id)">
-
                 Excluir
-
               </button>
 
             </td>

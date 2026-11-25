@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +23,9 @@ export class Agendamentos implements OnInit {
 
   editandoId: number | null = null;
 
+  mensagemSucesso = '';
+  mensagemErro = '';
+
   constructor(
     private agendamentoService: Agendamento,
     private clienteService: Cliente,
@@ -43,6 +45,8 @@ export class Agendamentos implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao carregar agendamentos:', erro);
+        this.mensagemErro = 'Não foi possível carregar os agendamentos.';
+        this.cdr.detectChanges();
       }
     });
   }
@@ -55,11 +59,16 @@ export class Agendamentos implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao carregar clientes:', erro);
+        this.mensagemErro = 'Não foi possível carregar a lista de clientes.';
+        this.cdr.detectChanges();
       }
     });
   }
 
   salvar(): void {
+
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
 
     const dados = {
       dataHora: this.dataHora + ':00',
@@ -74,13 +83,16 @@ export class Agendamentos implements OnInit {
 
       this.agendamentoService.atualizar(this.editandoId, dados).subscribe({
         next: () => {
-          alert('Agendamento atualizado com sucesso!');
+          this.mensagemSucesso = 'Agendamento atualizado com sucesso!';
+
           this.limparFormulario();
           this.carregarAgendamentos();
+          this.cdr.detectChanges();
         },
         error: (erro) => {
           console.error('Erro ao atualizar:', erro);
-          alert('Não foi possível atualizar o agendamento.');
+          this.mensagemErro = 'Não foi possível atualizar o agendamento.';
+          this.cdr.detectChanges();
         }
       });
 
@@ -88,13 +100,16 @@ export class Agendamentos implements OnInit {
 
       this.agendamentoService.cadastrar(dados).subscribe({
         next: () => {
-          alert('Agendamento cadastrado com sucesso!');
+          this.mensagemSucesso = 'Agendamento cadastrado com sucesso!';
+
           this.limparFormulario();
           this.carregarAgendamentos();
+          this.cdr.detectChanges();
         },
         error: (erro) => {
           console.error('Erro ao cadastrar:', erro);
-          alert('Não foi possível cadastrar o agendamento.');
+          this.mensagemErro = 'Não foi possível cadastrar o agendamento.';
+          this.cdr.detectChanges();
         }
       });
 
@@ -102,6 +117,9 @@ export class Agendamentos implements OnInit {
   }
 
   editar(agendamento: any): void {
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     this.editandoId = agendamento.id;
 
     this.dataHora = agendamento.dataHora.substring(0, 16);
@@ -118,14 +136,20 @@ export class Agendamentos implements OnInit {
       return;
     }
 
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     this.agendamentoService.excluir(id).subscribe({
       next: () => {
-        alert('Agendamento excluído com sucesso!');
+        this.mensagemSucesso = 'Agendamento excluído com sucesso!';
+
         this.carregarAgendamentos();
+        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao excluir:', erro);
-        alert('Não foi possível excluir o agendamento.');
+        this.mensagemErro = 'Não foi possível excluir o agendamento.';
+        this.cdr.detectChanges();
       }
     });
   }

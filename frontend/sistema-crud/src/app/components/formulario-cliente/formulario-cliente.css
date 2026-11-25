@@ -94,3 +94,23 @@
   background-color: #edc878;
   transform: translateY(-2px);
 }
+.mensagem-sucesso,
+.mensagem-erro {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mensagem-sucesso {
+  background-color: #183d2b;
+  border: 1px solid #2e8b57;
+  color: #8ce0a9;
+}
+
+.mensagem-erro {
+  background-color: #451f1f;
+  border: 1px solid #a94444;
+  color: #ffaaaa;
+}

@@ -7,6 +7,14 @@
     <p>Preencha os dados para cadastrar um cliente.</p>
   </div>
 
+  <div *ngIf="mensagemSucesso" class="mensagem-sucesso" role="status">
+    {{ mensagemSucesso }}
+  </div>
+
+  <div *ngIf="mensagemErro" class="mensagem-erro" role="alert">
+    {{ mensagemErro }}
+  </div>
+
   <form (ngSubmit)="cadastrar()">
 
     <div class="campo">

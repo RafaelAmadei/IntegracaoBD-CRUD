@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Cliente } from '../../services/cliente';
-import {RouterLink} from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-cliente',
-  imports: [FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   styleUrl: './formulario-cliente.css',
   templateUrl: './formulario-cliente.html',
 })
@@ -15,11 +16,18 @@ export class FormularioCliente {
   telefone = '';
   email = '';
 
+  mensagemSucesso = '';
+  mensagemErro = '';
+
   constructor(private clienteService: Cliente) {}
 
   @Output() clienteCadastrado = new EventEmitter<void>();
 
-  cadastrar() {
+  cadastrar(): void {
+
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     const dados = {
       nome: this.nome,
       telefone: this.telefone,
@@ -28,6 +36,8 @@ export class FormularioCliente {
 
     this.clienteService.cadastrar(dados).subscribe({
       next: () => {
+        this.mensagemSucesso = 'Cliente cadastrado com sucesso!';
+
         this.nome = '';
         this.telefone = '';
         this.email = '';
@@ -36,6 +46,7 @@ export class FormularioCliente {
       },
       error: (erro) => {
         console.error('Erro ao cadastrar cliente:', erro);
+        this.mensagemErro = 'Não foi possível cadastrar o cliente. Tente novamente.';
       }
     });
   }

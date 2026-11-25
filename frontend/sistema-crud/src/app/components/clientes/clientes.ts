@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +20,9 @@ export class Clientes implements OnInit {
   telefoneEdit = '';
   emailEdit = '';
 
+  mensagemSucesso = '';
+  mensagemErro = '';
+
   constructor(
     private clienteService: Cliente,
     private cdr: ChangeDetectorRef
@@ -38,14 +40,17 @@ export class Clientes implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao buscar clientes:', erro);
-        alert('Não foi possível carregar os clientes.');
+        this.mensagemErro = 'Não foi possível carregar os clientes.';
+        this.cdr.detectChanges();
       }
     });
   }
 
   editar(cliente: any): void {
-    this.editandoId = cliente.id;
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
 
+    this.editandoId = cliente.id;
     this.nomeEdit = cliente.nome;
     this.telefoneEdit = cliente.telefone;
     this.emailEdit = cliente.email;
@@ -57,6 +62,9 @@ export class Clientes implements OnInit {
       return;
     }
 
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     const dados = {
       nome: this.nomeEdit,
       telefone: this.telefoneEdit,
@@ -65,14 +73,16 @@ export class Clientes implements OnInit {
 
     this.clienteService.atualizar(this.editandoId, dados).subscribe({
       next: () => {
-        alert('Cliente atualizado com sucesso!');
+        this.mensagemSucesso = 'Cliente atualizado com sucesso!';
 
         this.cancelarEdicao();
         this.carregarClientes();
+        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao atualizar cliente:', erro);
-        alert('Não foi possível atualizar o cliente.');
+        this.mensagemErro = 'Não foi possível atualizar o cliente.';
+        this.cdr.detectChanges();
       }
     });
   }
@@ -91,14 +101,19 @@ export class Clientes implements OnInit {
       return;
     }
 
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     this.clienteService.excluir(id).subscribe({
       next: () => {
-        alert('Cliente excluído com sucesso!');
+        this.mensagemSucesso = 'Cliente excluído com sucesso!';
         this.carregarClientes();
+        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao excluir cliente:', erro);
-        alert('Não foi possível excluir. Verifique se este cliente possui agendamentos vinculados.');
+        this.mensagemErro = 'Não foi possível excluir. Verifique se este cliente possui agendamentos vinculados.';
+        this.cdr.detectChanges();
       }
     });
   }
