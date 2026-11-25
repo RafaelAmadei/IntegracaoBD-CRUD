@@ -1,17 +1,43 @@
+
 .formulario-cliente {
   background-color: #1c1c1c;
-  padding: 30px;
+  padding: 35px;
   border-radius: 12px;
-  border: 1px solid #333;
+  border: 1px solid #383838;
   max-width: 600px;
-  margin: 30px auto;
+  margin: 35px auto;
   color: white;
 }
 
-.formulario-cliente h2 {
-  color: #c49a45;
+.cabecalho-form {
   margin-bottom: 25px;
-  font-size: 22px;
+}
+
+.voltar {
+  display: inline-block;
+  color: #d6ad5b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  transition: .3s;
+}
+
+.voltar:hover {
+  color: #edc878;
+  transform: translateX(-3px);
+}
+
+.formulario-cliente h2 {
+  color: #d6ad5b;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.cabecalho-form p {
+  color: #c0c0c0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .formulario-cliente form {
@@ -27,44 +53,44 @@
 }
 
 .campo label {
-  color: #ddd;
+  color: #f0f0f0;
   font-weight: bold;
   font-size: 14px;
 }
 
 .campo input {
   background-color: #292929;
-  border: 1px solid #444;
+  border: 1px solid #555;
   border-radius: 6px;
-  padding: 12px;
+  padding: 13px;
   color: white;
   font-size: 14px;
   outline: none;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .campo input:focus {
-  border-color: #c49a45;
-  box-shadow: 0 0 5px #c49a4555;
+  border-color: #d6ad5b;
+  box-shadow: 0 0 5px #d6ad5b55;
 }
 
 .campo input::placeholder {
-  color: #888;
+  color: #aaa;
 }
 
 .formulario-cliente button {
-  background-color: #c49a45;
+  background-color: #d6ad5b;
   color: #171717;
   border: none;
-  padding: 13px;
+  padding: 14px;
   border-radius: 6px;
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .formulario-cliente button:hover {
-  background-color: #dfb75f;
+  background-color: #edc878;
   transform: translateY(-2px);
 }

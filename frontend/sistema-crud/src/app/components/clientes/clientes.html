@@ -1,15 +1,109 @@
+
 <section class="clientes">
 
-  <h2>Clientes cadastrados</h2>
+  <div class="titulo-pagina">
+    <div>
+      <h2>Gerenciamento de clientes</h2>
+      <p>Consulte e gerencie os clientes da barbearia.</p>
+    </div>
 
-  <div *ngFor="let cliente of clientes" class="card-cliente">
-    <h3>{{ cliente.nome }}</h3>
-    <p>Telefone: {{ cliente.telefone }}</p>
-    <p>Email: {{ cliente.email }}</p>
+    <a routerLink="/clientes/novo" class="btn-novo">
+      + Novo cliente
+    </a>
   </div>
 
-  <p *ngIf="clientes.length === 0">
-    Nenhum cliente cadastrado.
-  </p>
+  <div class="lista-clientes">
+
+    <div *ngFor="let cliente of clientes" class="card-cliente">
+
+      <ng-container *ngIf="editandoId !== cliente.id; else formularioEdicao">
+
+        <div class="avatar">
+          {{ cliente.nome?.charAt(0)?.toUpperCase() || '?' }}
+        </div>
+
+        <div class="dados-cliente">
+          <h3>{{ cliente.nome }}</h3>
+          <p>{{ cliente.telefone }}</p>
+          <p>{{ cliente.email }}</p>
+
+          <div class="acoes-cliente">
+
+            <button
+              type="button"
+              class="btn-editar"
+              (click)="editar(cliente)">
+              Editar
+            </button>
+
+            <button
+              type="button"
+              class="btn-excluir"
+              (click)="excluir(cliente.id)">
+              Excluir
+            </button>
+
+          </div>
+        </div>
+
+      </ng-container>
+
+      <ng-template #formularioEdicao>
+
+        <form class="form-edicao" (ngSubmit)="salvarEdicao()">
+
+          <h3>Editar cliente</h3>
+
+          <label for="nomeEdit">Nome</label>
+          <input
+            type="text"
+            id="nomeEdit"
+            name="nomeEdit"
+            [(ngModel)]="nomeEdit"
+            required>
+
+          <label for="telefoneEdit">Telefone</label>
+          <input
+            type="tel"
+            id="telefoneEdit"
+            name="telefoneEdit"
+            [(ngModel)]="telefoneEdit"
+            required>
+
+          <label for="emailEdit">E-mail</label>
+          <input
+            type="email"
+            id="emailEdit"
+            name="emailEdit"
+            [(ngModel)]="emailEdit"
+            required>
+
+          <div class="acoes-cliente">
+
+            <button type="submit" class="btn-editar">
+              Salvar alterações
+            </button>
+
+            <button
+              type="button"
+              class="btn-excluir"
+              (click)="cancelarEdicao()">
+              Cancelar
+            </button>
+
+          </div>
+
+        </form>
+
+      </ng-template>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="clientes.length === 0" class="vazio">
+    <h3>Nenhum cliente cadastrado</h3>
+    <p>Cadastre o primeiro cliente da barbearia.</p>
+  </div>
 
 </section>

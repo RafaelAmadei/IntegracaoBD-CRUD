@@ -1,0 +1,184 @@
+.clientes {
+  padding: 40px 6%;
+  min-height: 80vh;
+  background-color: #111;
+  color: white;
+}
+
+.titulo-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
+}
+
+.titulo-pagina h2 {
+  font-size: 28px;
+  color: #c49a45;
+  margin-bottom: 8px;
+}
+
+.titulo-pagina p {
+  color: #aaa;
+}
+
+.btn-novo {
+  background: #c49a45;
+  color: #171717;
+  padding: 13px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-novo:hover {
+  background: #e0b75e;
+  transform: translateY(-2px);
+}
+
+.lista-clientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card-cliente {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.3s;
+}
+
+.card-cliente:hover {
+  border-color: #c49a45;
+  transform: translateY(-3px);
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  background: #c49a45;
+  color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.dados-cliente h3 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.dados-cliente p {
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+
+.vazio {
+  text-align: center;
+  padding: 60px 20px;
+  color: #aaa;
+  background: #1c1c1c;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.vazio h3 {
+  color: #c49a45;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .titulo-pagina {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .titulo-pagina h2 {
+    font-size: 23px;
+  }
+}
+
+.acoes-cliente {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.btn-editar,
+.btn-excluir {
+  border: none;
+  padding: 9px 13px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-editar {
+  background: #c49a45;
+  color: #171717;
+}
+
+.btn-editar:hover {
+  background: #e0b75e;
+}
+
+.btn-excluir {
+  background: #692d2d;
+  color: white;
+}
+
+.btn-excluir:hover {
+  background: #883b3b;
+}
+
+.form-edicao {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+
+.form-edicao h3 {
+  color: #c49a45;
+  margin-bottom: 8px;
+}
+
+.form-edicao label {
+  color: #ddd;
+  font-size: 13px;
+}
+
+.form-edicao input {
+  width: 100%;
+  padding: 11px;
+  background: #111;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 6px;
+  outline: none;
+}
+
+.form-edicao input:focus {
+  border-color: #c49a45;
+}
+
+.form-edicao .acoes-cliente {
+  margin-top: 10px;
+}

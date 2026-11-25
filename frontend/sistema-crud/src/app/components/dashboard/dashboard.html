@@ -1,35 +1,95 @@
 
-<main class="dashboard">
+<section class="dashboard">
 
-  <section class="boas-vindas">
-    <h2>Bem-vindo ao BarberPro!</h2>
-    <p>Gerencie seus clientes e agendamentos em um só lugar.</p>
-  </section>
+  <div class="banner">
 
-  <section class="indicadores">
+    <div class="banner-conteudo">
+      <span class="etiqueta">BARBERPRO • GESTÃO</span>
 
-    <div class="card">
-      <h3>Total de clientes</h3>
-      <p>0</p>
+      <h1>Bem-vindo ao <span>BarberPro</span></h1>
+
+      <p>
+        Gestão inteligente para sua barbearia.
+        Organize seus clientes e agendamentos em um só lugar.
+      </p>
+
+      <a routerLink="/agendamentos" class="btn-banner">
+        Ver agendamentos →
+      </a>
     </div>
 
-    <div class="card">
-      <h3>Agendamentos de hoje</h3>
-      <p>0</p>
+  </div>
+
+<div class="indicadores">
+
+  <div class="card-indicador">
+    <div class="icone-indicador">♙</div>
+    <div>
+      <h3>{{ totalClientes }}</h3>
+      <p>Clientes cadastrados</p>
+    </div>
+  </div>
+
+  <div class="card-indicador">
+    <div class="icone-indicador">▣</div>
+    <div>
+      <h3>{{ totalAgendamentos }}</h3>
+      <p>Agendamentos registrados</p>
+    </div>
+  </div>
+
+  <div class="card-indicador">
+    <div class="icone-indicador">✂</div>
+    <div>
+      <h3>03</h3>
+      <p>Serviços oferecidos</p>
+    </div>
+  </div>
+
+</div>
+
+  
+<div class="dashboard-info">
+
+  <div class="secao-titulo">
+    <div>
+      <span class="etiqueta">NOSSOS SERVIÇOS</span>
+      <h2>Experiência e qualidade em cada detalhe.</h2>
+      <p>Conheça alguns dos serviços oferecidos pela barbearia.</p>
+    </div>
+  </div>
+
+  <div class="servicos">
+
+    <div class="card-servico">
+      <img src="/Cabelo.jpeg" alt="Corte de cabelo">
+      <div class="info-servico">
+        <h3>Corte de cabelo</h3>
+        <p>Cortes modernos e tradicionais com acabamento profissional.</p>
+        <span>ESTILO & PRECISÃO</span>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Próximos agendamentos</h3>
-      <p>0</p>
+    <div class="card-servico">
+      <img src="/Barba.jpeg" alt="Barba">
+      <div class="info-servico">
+        <h3>Barba</h3>
+        <p>Modelagem e cuidados para manter sua barba impecável.</p>
+        <span>CUIDADO & ELEGÂNCIA</span>
+      </div>
     </div>
 
-  </section>
+    <div class="card-servico">
+      <img src="/Completo.jpeg" alt="Corte e barba">
+      <div class="info-servico">
+        <h3>Corte + barba</h3>
+        <p>Uma experiência completa para renovar seu visual.</p>
+        <span>VISUAL COMPLETO</span>
+      </div>
+    </div>
 
-  <section class="atalhos">
-    <h2>Acesso rápido</h2>
+  </div>
 
-    <button>Adicionar cliente</button>
-    <button>Novo agendamento</button>
-  </section>
+</div>
 
-</main>
+</section>

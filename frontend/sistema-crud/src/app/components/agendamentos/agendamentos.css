@@ -1,0 +1,211 @@
+
+.agendamentos {
+  padding: 40px 5%;
+  color: #f5f5f5;
+  min-height: 85vh;
+  background: #111;
+}
+
+.titulo-pagina {
+  margin-bottom: 30px;
+}
+
+.etiqueta {
+  color: #d6ad5c;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.titulo-pagina h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  margin: 12px 0;
+  color: #ffffff;
+}
+
+.titulo-pagina p,
+.titulo-formulario p,
+.titulo-lista p {
+  color: #c2c2c2;
+  font-size: 14px;
+}
+
+.formulario,
+.lista {
+  background: #1c1c1c;
+  border: 1px solid #383838;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.titulo-formulario,
+.titulo-lista {
+  margin-bottom: 24px;
+}
+
+.titulo-formulario h3,
+.titulo-lista h3 {
+  color: #d6ad5c;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 8px;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.campo label {
+  color: #eeeeee;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #555;
+  border-radius: 7px;
+  background: #121212;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: #d6ad5c;
+}
+
+.campo select option {
+  background: #1c1c1c;
+  color: #ffffff;
+}
+
+.campo input::placeholder {
+  color: #aaaaaa;
+}
+
+.botoes-formulario {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn-salvar,
+.btn-cancelar,
+.btn-editar,
+.btn-excluir {
+  padding: 11px 17px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.btn-salvar {
+  background: #d6ad5c;
+  color: #171717;
+}
+
+.btn-salvar:hover {
+  background: #e8c77f;
+}
+
+.btn-cancelar {
+  background: #505050;
+  color: #ffffff;
+}
+
+.titulo-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.contador {
+  color: #e0bd72;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th,
+td {
+  padding: 16px 12px;
+  text-align: left;
+  border-bottom: 1px solid #383838;
+  font-size: 13px;
+}
+
+th {
+  color: #e0bd72;
+  font-family: 'Montserrat', sans-serif;
+}
+
+td {
+  color: #eeeeee;
+}
+
+.status {
+  color: #f0d28f;
+  background: #40351f;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-editar {
+  background: #d6ad5c;
+  color: #171717;
+}
+
+.btn-excluir {
+  background: #813d3d;
+  color: #ffffff;
+}
+
+.btn-editar:hover,
+.btn-excluir:hover,
+.btn-cancelar:hover {
+  opacity: .8;
+}
+
+.vazio {
+  text-align: center;
+  padding: 35px 15px;
+  color: #cccccc;
+}
+
+.vazio h3 {
+  color: #d6ad5c;
+  margin-bottom: 10px;
+}

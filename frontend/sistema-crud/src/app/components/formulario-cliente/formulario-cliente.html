@@ -1,6 +1,11 @@
 <section class="formulario-cliente">
 
-  <h2>Cadastrar novo cliente</h2>
+  <div class="cabecalho-form">
+    <a routerLink="/clientes" class="voltar">← Voltar para clientes</a>
+
+    <h2>Novo cliente</h2>
+    <p>Preencha os dados para cadastrar um cliente.</p>
+  </div>
 
   <form (ngSubmit)="cadastrar()">
 
@@ -12,8 +17,7 @@
         name="nome"
         [(ngModel)]="nome"
         required
-        placeholder="Digite o nome do cliente"
-      >
+        placeholder="Digite o nome completo">
     </div>
 
     <div class="campo">
@@ -24,8 +28,7 @@
         name="telefone"
         [(ngModel)]="telefone"
         required
-        placeholder="Digite o telefone"
-      >
+        placeholder="(00) 00000-0000">
     </div>
 
     <div class="campo">
@@ -36,8 +39,7 @@
         name="email"
         [(ngModel)]="email"
         required
-        placeholder="Digite o e-mail"
-      >
+        placeholder="exemplo@email.com">
     </div>
 
     <button type="submit">Cadastrar cliente</button>

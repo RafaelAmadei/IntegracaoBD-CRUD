@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -16,6 +17,14 @@ export class Cliente {
 
   cadastrar(dados: any) {
     return this.http.post<any>(this.apiUrl, dados);
+  }
+
+  atualizar(id: number, dados: any) {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, dados);
+  }
+
+  excluir(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
 }

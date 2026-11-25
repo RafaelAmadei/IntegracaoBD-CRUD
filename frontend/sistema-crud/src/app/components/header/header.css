@@ -16,8 +16,10 @@
 }
 
 .logo h1 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 26px;
   margin: 0;
+  color: white;
 }
 
 .logo span {
@@ -26,24 +28,38 @@
 
 .icone {
   font-size: 28px;
+  color: #c49a45;
 }
 
 .menu {
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
 .menu a {
-  color: white;
+  color: #ddd;
   text-decoration: none;
-  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+  padding: 10px 0;
+  border-bottom: 2px solid transparent;
 }
 
 .menu a:hover {
   color: #c49a45;
 }
 
+.menu a.ativo {
+  color: #c49a45;
+  border-bottom-color: #c49a45;
+}
+
 .admin {
   color: #c49a45;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
   font-weight: bold;
 }

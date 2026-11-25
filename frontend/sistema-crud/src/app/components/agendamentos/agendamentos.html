@@ -1,0 +1,202 @@
+
+<section class="agendamentos">
+
+  <div class="titulo-pagina">
+    <div>
+      <span class="etiqueta">BARBERPRO • GESTÃO</span>
+      <h2>Gerenciamento de agendamentos</h2>
+      <p>Organize os horários e serviços da sua barbearia.</p>
+    </div>
+  </div>
+
+  <div class="formulario">
+
+    <div class="titulo-formulario">
+      <h3>
+        {{ editandoId !== null ? 'Editar agendamento' : 'Novo agendamento' }}
+      </h3>
+      <p>Preencha os dados abaixo.</p>
+    </div>
+
+    <form (ngSubmit)="salvar()">
+
+      <div class="campos">
+
+        <div class="campo">
+          <label for="cliente">Cliente</label>
+
+          <select
+            id="cliente"
+            name="cliente"
+            [(ngModel)]="clienteId"
+            required>
+
+            <option value="" disabled>Selecione um cliente</option>
+
+            <option
+              *ngFor="let cliente of clientes"
+              [value]="cliente.id">
+
+              {{ cliente.nome }}
+
+            </option>
+
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="servico">Serviço</label>
+
+          <select
+            id="servico"
+            name="servico"
+            [(ngModel)]="servico"
+            required>
+
+            <option value="" disabled>Selecione um serviço</option>
+            <option value="Corte de cabelo">Corte de cabelo</option>
+            <option value="Barba">Barba</option>
+            <option value="Corte + barba">Corte + barba</option>
+
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="dataHora">Data e horário</label>
+
+          <input
+            type="datetime-local"
+            id="dataHora"
+            name="dataHora"
+            [(ngModel)]="dataHora"
+            required>
+        </div>
+
+        <div class="campo">
+          <label for="status">Status</label>
+
+          <select
+            id="status"
+            name="status"
+            [(ngModel)]="status"
+            required>
+
+            <option value="Pendente">Pendente</option>
+            <option value="Confirmado">Confirmado</option>
+            <option value="Concluído">Concluído</option>
+            <option value="Cancelado">Cancelado</option>
+
+          </select>
+        </div>
+
+      </div>
+
+      <div class="botoes-formulario">
+
+        <button type="submit" class="btn-salvar">
+          {{ editandoId !== null ? 'Salvar alterações' : 'Cadastrar agendamento' }}
+        </button>
+
+        <button
+          *ngIf="editandoId !== null"
+          type="button"
+          class="btn-cancelar"
+          (click)="limparFormulario()">
+
+          Cancelar edição
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="lista">
+
+    <div class="titulo-lista">
+      <div>
+        <h3>Agendamentos registrados</h3>
+        <p>Consulte e gerencie os horários cadastrados.</p>
+      </div>
+
+      <span class="contador">
+        {{ agendamentos.length }} agendamento(s)
+      </span>
+    </div>
+
+    <div class="tabela-container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Serviço</th>
+            <th>Data e horário</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let agendamento of agendamentos">
+
+            <td>
+              {{ agendamento.cliente?.nome }}
+            </td>
+
+            <td>
+              {{ agendamento.servico }}
+            </td>
+
+            <td>
+              {{ agendamento.dataHora | date:'dd/MM/yyyy HH:mm' }}
+            </td>
+
+            <td>
+              <span class="status">
+                {{ agendamento.status }}
+              </span>
+            </td>
+
+            <td class="acoes">
+
+              <button
+                class="btn-editar"
+                type="button"
+                (click)="editar(agendamento)">
+
+                Editar
+
+              </button>
+
+              <button
+                class="btn-excluir"
+                type="button"
+                (click)="excluir(agendamento.id)">
+
+                Excluir
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <div *ngIf="agendamentos.length === 0" class="vazio">
+        <h3>Nenhum agendamento encontrado</h3>
+        <p>Cadastre o primeiro horário da barbearia.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

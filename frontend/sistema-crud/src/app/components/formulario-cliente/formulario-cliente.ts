@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Cliente } from '../../services/cliente';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-formulario-cliente',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   styleUrl: './formulario-cliente.css',
   templateUrl: './formulario-cliente.html',
 })
